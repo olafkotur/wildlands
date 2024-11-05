@@ -1,26 +1,37 @@
 extends StaticBody2D
 
-@export var tool_type: String
-@export var resource_type: String
-@export var default_animation: String
-@export var depleted_animation: String
-@export var resource_amount: int
-@export var respawn_time: int
+@export var resource_name: Resources.ResourceName
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animation = $AnimatedSprite2D
 @onready var timer = $Timer
 
+var resource = Resources.ResourceMeta[resource_name]
 var is_depleted = false
+var player_in_area = false
 
-func harvest_resource() -> void:
+func harvest() -> void:
 	is_depleted = true
-	animated_sprite.play(depleted_animation)
-	timer.start(respawn_time)
+	animation.play(resource["depleted_animation"])
+	timer.start(resource["respawn_time"])
+	Inventory.add_resource(resource_name, resource["resource_amount"])
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player") and not is_depleted:
-		harvest_resource()
+	if area.is_in_group("player"):
+		player_in_area = true
+
+		if not is_depleted:
+			harvest()
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		player_in_area = false
 
 func _on_timer_timeout() -> void:
 	is_depleted = false
-	animated_sprite.play(default_animation)
+	animation.play(resource["default_animation"])
+
+	if player_in_area:
+		harvest()
+		
+func _ready() -> void:
+	animation.play(resource["default_animation"])
