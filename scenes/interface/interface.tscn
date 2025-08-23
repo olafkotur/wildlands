@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxv5vw57uiqab"]
+
+[ext_resource type="PackedScene" uid="uid://brc8o0nl5buks" path="res://scenes/interface/hud/hud.tscn" id="1_imcys"]
+[ext_resource type="Script" uid="uid://vucyc2uqcm42" path="res://scenes/interface/interface.gd" id="1_ubrc0"]
+[ext_resource type="PackedScene" uid="uid://dklwxvwq0m2fj" path="res://scenes/interface/inventory/inventory.tscn" id="2_ubrc0"]
+
+[node name="Interface" type="CanvasLayer"]
+script = ExtResource("1_ubrc0")
+
+[node name="Hud" parent="." instance=ExtResource("1_imcys")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="." instance=ExtResource("2_ubrc0")]

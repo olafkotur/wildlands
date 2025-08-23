@@ -1,7 +1,6 @@
 extends Control
 
-@onready var inventory_container = $VBoxContainer
-@onready var button = $Button
+@onready var inventory_panel = $PanelContainer
 
 func update_inventory():
 	var player_inventory = Inventory.get_inventory()
@@ -11,7 +10,11 @@ func update_inventory():
 		if resource_amount > 0:
 			var label = Label.new()
 			label.text = str(resource_name) + ": " + str(resource_amount)
-			inventory_container.add_child(label)
+			inventory_panel.add_child(label)
+			
+func toggle_visibility():
+	inventory_panel.visible = not inventory_panel.visible
+	print("New state:", inventory_panel.visible)
 
 func _ready():
-	button.connect("pressed", queue_free)
+	inventory_panel.visible = false

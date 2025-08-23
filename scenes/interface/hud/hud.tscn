@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://brc8o0nl5buks"]
+
+[ext_resource type="Script" uid="uid://6tfcfrrnp8el" path="res://scenes/interface/hud/hud.gd" id="1_kennk"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kennk")
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InventoryButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

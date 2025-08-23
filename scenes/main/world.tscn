@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://h0uwsjh0sdu1" path="res://assets/textures/tileset.png" id="1_ngsmw"]
 [ext_resource type="PackedScene" uid="uid://dcyjbpdy0wgoo" path="res://scenes/entities/player/player.tscn" id="2_51fyu"]
-[ext_resource type="PackedScene" uid="uid://dklwxvwq0m2fj" path="res://scenes/interface/inventory/inventory.tscn" id="3_loarq"]
+[ext_resource type="PackedScene" uid="uid://dxv5vw57uiqab" path="res://scenes/interface/interface.tscn" id="3_526id"]
 [ext_resource type="PackedScene" uid="uid://cjwyi7ayfhoma" path="res://scenes/entities/resource/resource.tscn" id="3_tneif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5a4x"]
@@ -95,12 +95,9 @@ tile_map_data = PackedByteArray("AAD/////AAABAAYAAAD//wAAAAABAAYAAAAAAAAAAAABAAY
 tile_set = SubResource("TileSet_ndf4y")
 
 [node name="Player" parent="." instance=ExtResource("2_51fyu")]
+position = Vector2(-9, -2)
 
-[node name="Inventory" parent="." instance=ExtResource("3_loarq")]
-offset_left = -91.0
-offset_top = -160.0
-offset_right = -91.0
-offset_bottom = -160.0
+[node name="Interface" parent="." instance=ExtResource("3_526id")]
 
 [node name="Resources" type="Node" parent="."]
 
