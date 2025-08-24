@@ -101,5 +101,13 @@ position = Vector2(-9, -2)
 
 [node name="Resources" type="Node" parent="."]
 
-[node name="Tree" parent="Resources" instance=ExtResource("3_tneif")]
-position = Vector2(-48, -27)
+[node name="SpruceTree" parent="Resources" instance=ExtResource("3_tneif")]
+position = Vector2(-68, -61)
+
+[node name="WillowTree" parent="Resources" instance=ExtResource("3_tneif")]
+position = Vector2(-7, -61)
+resource_name = 2
+
+[node name="MapleTree" parent="Resources" instance=ExtResource("3_tneif")]
+position = Vector2(47, -61)
+resource_name = 6
